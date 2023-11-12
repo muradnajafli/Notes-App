@@ -1,17 +1,20 @@
-package com.example.notesapp.adapter
+package com.muradnajafli.notesapp.adapter
 
 import android.annotation.SuppressLint
 import android.content.Context
+import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.RecyclerView.ViewHolder
-import com.example.notesapp.data.Note
-import com.example.notesapp.databinding.NoteItemBinding
-import com.example.notesapp.fragment.NoteListFragmentDirections
+import com.google.firebase.analytics.FirebaseAnalytics
+import com.muradnajafli.notesapp.data.Note
+import com.muradnajafli.notesapp.databinding.NoteItemBinding
+import com.muradnajafli.notesapp.fragment.NoteListFragmentDirections
 
 class NotesAdapter(val context: Context, private var noteList: List<Note>) : RecyclerView.Adapter<NotesAdapter.NotesViewHolder>() {
+    private val firebaseAnalytics = FirebaseAnalytics.getInstance(context)
 
     inner class NotesViewHolder(val binding: NoteItemBinding) : ViewHolder(binding.root)
 
@@ -28,6 +31,8 @@ class NotesAdapter(val context: Context, private var noteList: List<Note>) : Rec
         myHolder.root.setOnClickListener {
             val action = NoteListFragmentDirections.actionNoteListFragmentToDetailFragment(note)
             it.findNavController().navigate(action)
+
+            logFirebaseEvent()
         }
     }
 
@@ -37,5 +42,12 @@ class NotesAdapter(val context: Context, private var noteList: List<Note>) : Rec
     fun setData(newNotesList: List<Note>) {
         noteList = newNotesList
         notifyDataSetChanged()
+    }
+
+    private fun logFirebaseEvent() {
+        val bundle = Bundle().apply {
+            putInt("view_note_content", 1)
+        }
+        firebaseAnalytics.logEvent("view_note", bundle)
     }
 }

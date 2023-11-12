@@ -1,4 +1,4 @@
-package com.example.notesapp.fragment
+package com.muradnajafli.notesapp.fragment
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -7,12 +7,12 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.notesapp.adapter.NotesAdapter
-import com.example.notesapp.data.NoteViewModel
+import com.muradnajafli.notesapp.adapter.NotesAdapter
+import com.muradnajafli.notesapp.data.NoteViewModel
 import androidx.navigation.fragment.findNavController
-import com.example.notesapp.R
-import com.example.notesapp.data.Note
-import com.example.notesapp.databinding.FragmentNoteListBinding
+import com.muradnajafli.notesapp.R
+import com.muradnajafli.notesapp.data.Note
+import com.muradnajafli.notesapp.databinding.FragmentNoteListBinding
 
 class NoteListFragment : Fragment() {
     private var _binding: FragmentNoteListBinding? = null

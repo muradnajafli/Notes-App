@@ -1,4 +1,4 @@
-package com.example.notesapp.data
+package com.muradnajafli.notesapp.data
 
 import android.app.Application
 import androidx.lifecycle.AndroidViewModel

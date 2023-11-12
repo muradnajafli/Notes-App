@@ -1,4 +1,4 @@
-package com.example.notesapp.data
+package com.muradnajafli.notesapp.data
 
 import android.os.Parcelable
 import androidx.room.ColumnInfo
@@ -12,5 +12,5 @@ data class Note(
     @PrimaryKey(autoGenerate = true) val id: Long = 0,
     @ColumnInfo(name = "name") val name: String,
     @ColumnInfo(name = "note") val note: String,
-    @ColumnInfo(name = "date") val date: String
+    @ColumnInfo(name = "date") val date: String,
 ): Parcelable

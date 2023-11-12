@@ -1,4 +1,4 @@
-package com.example.notesapp.fragment
+package com.muradnajafli.notesapp.fragment
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -9,15 +9,17 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.findNavController
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
-import com.example.notesapp.R
-import com.example.notesapp.data.NoteViewModel
-import com.example.notesapp.databinding.FragmentDetailBinding
+import com.google.firebase.analytics.FirebaseAnalytics
+import com.muradnajafli.notesapp.R
+import com.muradnajafli.notesapp.data.NoteViewModel
+import com.muradnajafli.notesapp.databinding.FragmentDetailBinding
 
 class DetailFragment : Fragment() {
     private var _binding: FragmentDetailBinding? = null
     private val binding get() = _binding!!
     private val args: DetailFragmentArgs by navArgs()
     private lateinit var viewModel: NoteViewModel
+    private lateinit var firebaseAnalytics: FirebaseAnalytics
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -25,6 +27,8 @@ class DetailFragment : Fragment() {
     ): View {
         _binding = FragmentDetailBinding.inflate(inflater, container, false)
         viewModel = ViewModelProvider(this)[NoteViewModel::class.java]
+
+        firebaseAnalytics = FirebaseAnalytics.getInstance(requireContext())
 
         val note = args.detailNote
         binding.nameDetail.text = note.name
@@ -38,9 +42,17 @@ class DetailFragment : Fragment() {
         binding.deleteButton.setOnClickListener {
             viewModel.deleteNote(note)
             findNavController().navigate(R.id.action_detailFragment_to_noteListFragment)
+            logFirebaseEvent()
         }
 
         return binding.root
+    }
+
+    private fun logFirebaseEvent() {
+        val bundle = Bundle().apply {
+            putInt("remove_note_content", 1)
+        }
+        firebaseAnalytics.logEvent("remove_note", bundle)
     }
 
 }
