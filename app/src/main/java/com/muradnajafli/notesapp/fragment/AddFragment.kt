@@ -5,7 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.lifecycle.ViewModelProvider
+import androidx.fragment.app.viewModels
 import com.muradnajafli.notesapp.R
 import com.muradnajafli.notesapp.data.Note
 import com.muradnajafli.notesapp.data.NoteViewModel
@@ -20,7 +20,7 @@ import com.google.firebase.analytics.FirebaseAnalytics
 class AddFragment : Fragment() {
     private var _binding: FragmentAddBinding? = null
     private val binding get() = _binding!!
-    private lateinit var viewModel: NoteViewModel
+    private val viewModel: NoteViewModel by viewModels()
     private lateinit var firebaseAnalytics: FirebaseAnalytics
 
     override fun onCreateView(
@@ -29,13 +29,10 @@ class AddFragment : Fragment() {
     ): View {
         _binding = FragmentAddBinding.inflate(inflater, container, false)
 
-        firebaseAnalytics = FirebaseAnalytics.getInstance(requireContext())
+        firebaseAnalytics = FirebaseAnalytics.getInstance(requireContext().applicationContext)
 
-        viewModel = ViewModelProvider(this)[NoteViewModel::class.java]
         binding.saveButton.setOnClickListener {
-            val currentDate = Date()
-            val dateFormat = SimpleDateFormat("dd/MM/yyyy HH:mm:ss", Locale.getDefault())
-            val formattedDate = dateFormat.format(currentDate)
+            val formattedDate = getCurrentFormattedDate()
 
             val note = Note(0,
                 binding.nameInput.editText?.text.toString(),
@@ -47,6 +44,12 @@ class AddFragment : Fragment() {
             findNavController().navigate(R.id.action_addFragment_to_noteListFragment)
         }
         return binding.root
+    }
+
+    private fun getCurrentFormattedDate(): String {
+        val currentDate = Date()
+        val dateFormat = SimpleDateFormat("dd/MM/yyyy HH:mm:ss", Locale.getDefault())
+        return dateFormat.format(currentDate)
     }
 
     override fun onDestroyView() {

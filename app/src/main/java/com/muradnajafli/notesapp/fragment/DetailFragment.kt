@@ -5,7 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.lifecycle.ViewModelProvider
+import androidx.fragment.app.viewModels
 import androidx.navigation.findNavController
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
@@ -18,7 +18,7 @@ class DetailFragment : Fragment() {
     private var _binding: FragmentDetailBinding? = null
     private val binding get() = _binding!!
     private val args: DetailFragmentArgs by navArgs()
-    private lateinit var viewModel: NoteViewModel
+    private val viewModel: NoteViewModel by viewModels()
     private lateinit var firebaseAnalytics: FirebaseAnalytics
 
     override fun onCreateView(
@@ -26,9 +26,8 @@ class DetailFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         _binding = FragmentDetailBinding.inflate(inflater, container, false)
-        viewModel = ViewModelProvider(this)[NoteViewModel::class.java]
 
-        firebaseAnalytics = FirebaseAnalytics.getInstance(requireContext())
+        firebaseAnalytics = FirebaseAnalytics.getInstance(requireContext().applicationContext)
 
         val note = args.detailNote
         binding.nameDetail.text = note.name

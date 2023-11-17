@@ -5,7 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.lifecycle.ViewModelProvider
+import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.muradnajafli.notesapp.R
@@ -19,7 +19,7 @@ import java.util.Locale
 class EditFragment : Fragment() {
     private var _binding: FragmentEditBinding? = null
     private val binding get() = _binding!!
-    private lateinit var viewModel: NoteViewModel
+    private val viewModel: NoteViewModel by viewModels()
     private val args: EditFragmentArgs by navArgs()
 
     override fun onCreateView(
@@ -27,25 +27,28 @@ class EditFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         _binding = FragmentEditBinding.inflate(inflater, container, false)
-        viewModel = ViewModelProvider(this)[NoteViewModel::class.java]
         binding.name.setText(args.editNote.name)
         binding.note.setText(args.editNote.note)
 
         binding.saveButton.setOnClickListener {
-            val currentDate = Date()
-            val dateFormat = SimpleDateFormat("dd/MM/yyyy HH:mm:ss", Locale.getDefault())
-            val formattedDate = dateFormat.format(currentDate)
+            val formattedDate = getCurrentFormattedDate()
 
             val note = Note(args.editNote.id,
                 binding.nameInput.editText?.text.toString(),
                 binding.noteInput.editText?.text.toString(),
-                formattedDate,
+                formattedDate
             )
             findNavController().navigate(R.id.action_editFragment_to_noteListFragment)
             viewModel.updateNote(note)
         }
 
         return binding.root
+    }
+
+    private fun getCurrentFormattedDate(): String {
+        val currentDate = Date()
+        val dateFormat = SimpleDateFormat("dd/MM/yyyy HH:mm:ss", Locale.getDefault())
+        return dateFormat.format(currentDate)
     }
 
     override fun onDestroyView() {
