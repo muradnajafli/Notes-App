@@ -13,7 +13,6 @@ import com.muradnajafli.notesapp.data.model.Note
 import com.muradnajafli.notesapp.presentation.NoteViewModel
 import com.muradnajafli.notesapp.databinding.FragmentEditBinding
 import dagger.hilt.android.AndroidEntryPoint
-import dagger.hilt.android.HiltAndroidApp
 import java.text.SimpleDateFormat
 import java.util.Date
 import java.util.Locale
