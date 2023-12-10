@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.muradnajafli.notesapp.fragment.NoteListFragment">
+    tools:context="com.muradnajafli.notesapp.presentation.main.NoteListFragment">
 
 
     <androidx.recyclerview.widget.RecyclerView
@@ -43,5 +43,18 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/errorMessage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        tools:text="You don't have any notes yet"
+        tools:visibility="visible"
+        android:visibility="gone"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/recyclerView"
+        app:layout_constraintStart_toStartOf="@+id/recyclerView"
+        app:layout_constraintTop_toTopOf="@+id/noteListToolbar" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

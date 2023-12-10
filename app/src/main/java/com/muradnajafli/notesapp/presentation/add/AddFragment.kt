@@ -1,4 +1,4 @@
-package com.muradnajafli.notesapp.fragment
+package com.muradnajafli.notesapp.presentation.add
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -7,16 +7,17 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.viewModels
 import com.muradnajafli.notesapp.R
-import com.muradnajafli.notesapp.data.Note
-import com.muradnajafli.notesapp.data.NoteViewModel
+import com.muradnajafli.notesapp.data.model.Note
+import com.muradnajafli.notesapp.presentation.NoteViewModel
 import com.muradnajafli.notesapp.databinding.FragmentAddBinding
 import java.text.SimpleDateFormat
 import java.util.Date
 import java.util.Locale
-
 import androidx.navigation.fragment.findNavController
 import com.google.firebase.analytics.FirebaseAnalytics
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class AddFragment : Fragment() {
     private var _binding: FragmentAddBinding? = null
     private val binding get() = _binding!!

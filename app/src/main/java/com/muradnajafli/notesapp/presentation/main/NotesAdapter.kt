@@ -1,4 +1,4 @@
-package com.muradnajafli.notesapp.adapter
+package com.muradnajafli.notesapp.presentation.main
 
 import android.annotation.SuppressLint
 import android.os.Bundle
@@ -8,9 +8,8 @@ import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.RecyclerView.ViewHolder
 import com.google.firebase.analytics.FirebaseAnalytics
-import com.muradnajafli.notesapp.data.Note
+import com.muradnajafli.notesapp.data.model.Note
 import com.muradnajafli.notesapp.databinding.NoteItemBinding
-import com.muradnajafli.notesapp.fragment.NoteListFragmentDirections
 
 class NotesAdapter : RecyclerView.Adapter<NotesAdapter.NotesViewHolder>() {
     private lateinit var firebaseAnalytics: FirebaseAnalytics

@@ -9,4 +9,5 @@
     <string name="edit">EDIT</string>
     <string name="delete">DELETE</string>
     <string name="save">SAVE</string>
+    <string name="you_dont_have_any_notes_yet">You don\'t have any notes yet</string>
 </resources>

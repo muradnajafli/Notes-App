@@ -1,4 +1,4 @@
-package com.muradnajafli.notesapp.fragment
+package com.muradnajafli.notesapp.presentation.edit
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -9,13 +9,16 @@ import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.muradnajafli.notesapp.R
-import com.muradnajafli.notesapp.data.Note
-import com.muradnajafli.notesapp.data.NoteViewModel
+import com.muradnajafli.notesapp.data.model.Note
+import com.muradnajafli.notesapp.presentation.NoteViewModel
 import com.muradnajafli.notesapp.databinding.FragmentEditBinding
+import dagger.hilt.android.AndroidEntryPoint
+import dagger.hilt.android.HiltAndroidApp
 import java.text.SimpleDateFormat
 import java.util.Date
 import java.util.Locale
 
+@AndroidEntryPoint
 class EditFragment : Fragment() {
     private var _binding: FragmentEditBinding? = null
     private val binding get() = _binding!!

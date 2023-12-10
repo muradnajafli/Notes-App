@@ -1,4 +1,4 @@
-package com.muradnajafli.notesapp.fragment
+package com.muradnajafli.notesapp.presentation.detail
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -11,14 +11,17 @@ import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.google.firebase.analytics.FirebaseAnalytics
 import com.muradnajafli.notesapp.R
-import com.muradnajafli.notesapp.data.NoteViewModel
+import com.muradnajafli.notesapp.presentation.NoteViewModel
 import com.muradnajafli.notesapp.databinding.FragmentDetailBinding
+import dagger.hilt.android.AndroidEntryPoint
+
+@AndroidEntryPoint
 
 class DetailFragment : Fragment() {
     private var _binding: FragmentDetailBinding? = null
     private val binding get() = _binding!!
-    private val args: DetailFragmentArgs by navArgs()
     private val viewModel: NoteViewModel by viewModels()
+    private val args: DetailFragmentArgs by navArgs()
     private lateinit var firebaseAnalytics: FirebaseAnalytics
 
     override fun onCreateView(

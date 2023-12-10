@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/noteListFragment"
-        android:name="com.muradnajafli.notesapp.fragment.NoteListFragment"
+        android:name="com.muradnajafli.notesapp.presentation.main.NoteListFragment"
         android:label="fragment_note_list"
         tools:layout="@layout/fragment_note_list">
         <action
@@ -19,7 +19,7 @@
     </fragment>
     <fragment
         android:id="@+id/addFragment"
-        android:name="com.muradnajafli.notesapp.fragment.AddFragment"
+        android:name="com.muradnajafli.notesapp.presentation.add.AddFragment"
         android:label="fragment_add"
         tools:layout="@layout/fragment_add" >
         <action
@@ -28,7 +28,7 @@
     </fragment>
     <fragment
         android:id="@+id/detailFragment"
-        android:name="com.muradnajafli.notesapp.fragment.DetailFragment"
+        android:name="com.muradnajafli.notesapp.presentation.detail.DetailFragment"
         android:label="fragment_detail"
         tools:layout="@layout/fragment_detail" >
         <action
@@ -39,11 +39,11 @@
             app:destination="@id/noteListFragment" />
         <argument
             android:name="detailNote"
-            app:argType="com.muradnajafli.notesapp.data.Note" />
+            app:argType="com.muradnajafli.notesapp.data.model.Note" />
     </fragment>
     <fragment
         android:id="@+id/editFragment"
-        android:name="com.muradnajafli.notesapp.fragment.EditFragment"
+        android:name="com.muradnajafli.notesapp.presentation.edit.EditFragment"
         android:label="fragment_edit"
         tools:layout="@layout/fragment_edit" >
         <action
@@ -51,7 +51,7 @@
             app:destination="@id/noteListFragment" />
         <argument
             android:name="editNote"
-            app:argType="com.muradnajafli.notesapp.data.Note" />
+            app:argType="com.muradnajafli.notesapp.data.model.Note" />
 
     </fragment>
 </navigation>
