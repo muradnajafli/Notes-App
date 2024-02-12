@@ -1,7 +1,7 @@
-package com.muradnajafli.notesapp.domain
+package com.muradnajafli.notesapp.domain.usecase
 
 import com.muradnajafli.notesapp.data.model.Note
-import com.muradnajafli.notesapp.data.repository.NoteRepository
+import com.muradnajafli.notesapp.domain.repository.NoteRepository
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.withContext

@@ -1,14 +1,14 @@
-package com.muradnajafli.notesapp.data.di
+package com.muradnajafli.notesapp.di
 
-import com.muradnajafli.notesapp.data.repository.NoteRepository
-import com.muradnajafli.notesapp.domain.AddNoteUseCase
-import com.muradnajafli.notesapp.domain.AddNoteUseCaseImpl
-import com.muradnajafli.notesapp.domain.DeleteNoteUseCase
-import com.muradnajafli.notesapp.domain.DeleteNoteUseCaseImpl
-import com.muradnajafli.notesapp.domain.ReadAllNotesUseCase
-import com.muradnajafli.notesapp.domain.ReadAllNotesUseCaseImpl
-import com.muradnajafli.notesapp.domain.UpdateNoteUseCase
-import com.muradnajafli.notesapp.domain.UpdateNoteUseCaseImpl
+import com.muradnajafli.notesapp.domain.repository.NoteRepository
+import com.muradnajafli.notesapp.domain.usecase.AddNoteUseCase
+import com.muradnajafli.notesapp.domain.usecase.AddNoteUseCaseImpl
+import com.muradnajafli.notesapp.domain.usecase.DeleteNoteUseCase
+import com.muradnajafli.notesapp.domain.usecase.DeleteNoteUseCaseImpl
+import com.muradnajafli.notesapp.domain.usecase.ReadAllNotesUseCase
+import com.muradnajafli.notesapp.domain.usecase.ReadAllNotesUseCaseImpl
+import com.muradnajafli.notesapp.domain.usecase.UpdateNoteUseCase
+import com.muradnajafli.notesapp.domain.usecase.UpdateNoteUseCaseImpl
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn

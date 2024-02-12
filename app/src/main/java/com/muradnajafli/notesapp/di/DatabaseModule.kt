@@ -1,4 +1,4 @@
-package com.muradnajafli.notesapp.data.di
+package com.muradnajafli.notesapp.di
 
 import android.app.Application
 import androidx.room.Room

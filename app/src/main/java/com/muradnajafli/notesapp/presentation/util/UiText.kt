@@ -1,4 +1,4 @@
-package com.muradnajafli.notesapp.data.util
+package com.muradnajafli.notesapp.presentation.util
 
 import android.content.Context
 import androidx.annotation.StringRes

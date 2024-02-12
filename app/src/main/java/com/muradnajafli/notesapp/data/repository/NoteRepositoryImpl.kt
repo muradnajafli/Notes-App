@@ -2,6 +2,7 @@ package com.muradnajafli.notesapp.data.repository
 
 import com.muradnajafli.notesapp.data.model.Note
 import com.muradnajafli.notesapp.data.room.NoteDao
+import com.muradnajafli.notesapp.domain.repository.NoteRepository
 import kotlinx.coroutines.flow.Flow
 import javax.inject.Inject
 

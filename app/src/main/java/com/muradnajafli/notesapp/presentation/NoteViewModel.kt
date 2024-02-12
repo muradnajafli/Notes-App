@@ -5,11 +5,11 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.muradnajafli.notesapp.R
 import com.muradnajafli.notesapp.data.model.Note
-import com.muradnajafli.notesapp.data.util.UiText
-import com.muradnajafli.notesapp.domain.AddNoteUseCase
-import com.muradnajafli.notesapp.domain.DeleteNoteUseCase
-import com.muradnajafli.notesapp.domain.ReadAllNotesUseCase
-import com.muradnajafli.notesapp.domain.UpdateNoteUseCase
+import com.muradnajafli.notesapp.presentation.util.UiText
+import com.muradnajafli.notesapp.domain.usecase.AddNoteUseCase
+import com.muradnajafli.notesapp.domain.usecase.DeleteNoteUseCase
+import com.muradnajafli.notesapp.domain.usecase.ReadAllNotesUseCase
+import com.muradnajafli.notesapp.domain.usecase.UpdateNoteUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.MutableStateFlow

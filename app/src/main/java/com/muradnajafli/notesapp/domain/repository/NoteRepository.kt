@@ -1,4 +1,4 @@
-package com.muradnajafli.notesapp.data.repository
+package com.muradnajafli.notesapp.domain.repository
 
 import com.muradnajafli.notesapp.data.model.Note
 import kotlinx.coroutines.flow.Flow
